@@ -37,6 +37,8 @@ const livros = [
   }
 ]
 
+//permitindo uso do insominia
+app.use(express.json())
 
 
 //Requisição get
@@ -49,5 +51,15 @@ app.get('/', (req, res) => {
     res.status(200).json(livros)
 
   })
+
+
+  //POST
+  app.post('/livros', (req, res) => {
+    livros.push(req.body);
+    res.status(201).send('Livro cadastrado com sucesso')
+  })
+
+
+
 
   export default app
